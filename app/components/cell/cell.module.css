@@ -4,6 +4,10 @@
   width: 33%;
   transition: 1s all;
   border-right: 5px solid var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .cell:nth-child(3) {
