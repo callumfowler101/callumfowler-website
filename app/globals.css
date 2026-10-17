@@ -76,23 +76,3 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-
-.cell {
-  background: var(--primary-color);
-  height: 100%;
-  width: 33%;
-  transition: 1s all;
-  border-right: 5px solid var(--secondary-color);
-}
-
-.cell:nth-child(3) {
-  border-right: none;
-}
-
-.cell-clicked {
-  width: 75%;
-}
-
-.cell-shrink {
-  width: 12.5%;
-}

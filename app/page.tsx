@@ -1,26 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
+import Cell from './components/cell/cell.js'
 import Image from 'next/image'
-
-const showPanel = (e) => {
-  const id = e.target.id
-  const tChild = e.target
-  const pChildren = e.target.parentElement.children
-
-  tChild.classList.remove('cell-shrink')
-  tChild.classList.toggle('cell-clicked')
-  for (let i = 0; i < pChildren.length; i++) {
-    const child = pChildren[i]
-    if (child.id !== id) {
-      if (tChild.classList.value.includes('cell-clicked')) {
-        child.classList.add('cell-shrink')
-        child.classList.remove('cell-clicked')
-      } else {
-        child.classList.remove('cell-shrink')
-      }
-    }
-  }
-}
 
 export default function Home() {
   return (
@@ -54,15 +35,9 @@ export default function Home() {
           </div>
         </div>
         <div className="cell-container">
-          <div className="cell" id="about" onClick={showPanel}>
-            About
-          </div>
-          <div className="cell" id="portfolio" onClick={showPanel}>
-            Portfolio
-          </div>
-          <div className="cell" id="writing" onClick={showPanel}>
-            Writing
-          </div>
+          <Cell name="About" />
+          <Cell name="Portfolio" />
+          <Cell name="Writing" />
         </div>
       </div>
     </>
