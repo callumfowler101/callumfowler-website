@@ -1,26 +1,98 @@
-@import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --primary-color: #c6d67e;
+  --secondary-color: #f5deb3;
+  --font-color: #2c3b23;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--primary-color);
+}
+
+.container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100dvw;
+  height: 100dvh;
+  background: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Google Sans', sans-serif;
+  color: var(--font-color);
+}
+
+.header {
+  display: flex;
+  flex: row;
+  justify-content: space-between;
+  height: 10%;
+  border-bottom: 5px solid var(--secondary-color);
+}
+
+.header div {
+  height: 100%;
+  margin: 0% 2%;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header div p {
+  width: 100%;
+  text-align: center;
+}
+
+.header div h2 {
+  width: 100%;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.header div nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 75%;
+}
+
+.header * nav a {
+  height: 35%;
+  margin: 0% 10%;
+}
+
+.header * nav a img {
+  height: 100%;
+  filter: url(#tint);
+}
+
+.cell-container {
+  height: 90%;
+  background: var(--primary-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cell {
+  background: var(--primary-color);
+  height: 100%;
+  width: 33%;
+  transition: 1s all;
+  border-right: 5px solid var(--secondary-color);
+}
+
+.cell:nth-child(3) {
+  border-right: none;
+}
+
+.cell-clicked {
+  width: 75%;
+}
+
+.cell-shrink {
+  width: 12.5%;
 }
