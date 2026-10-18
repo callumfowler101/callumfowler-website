@@ -76,3 +76,8 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+
+.footer {
+  border-top: 5px solid var(--secondary-color);
+  height: 10%;
+}

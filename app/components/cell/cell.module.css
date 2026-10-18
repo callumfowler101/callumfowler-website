@@ -21,3 +21,12 @@
 .cell-shrink {
   width: 12.5%;
 }
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: wheat;
+  height: 75%;
+  width: 75%;
+}

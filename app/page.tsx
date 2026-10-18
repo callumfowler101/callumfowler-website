@@ -39,6 +39,7 @@ export default function Home() {
           <Cell name="Portfolio" />
           <Cell name="Writing" />
         </div>
+        <div className="footer"></div>
       </div>
     </>
   )
