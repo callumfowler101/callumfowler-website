@@ -4,8 +4,9 @@ import styles from './cell.module.css'
 import About from './about.js'
 import Portfolio from './portfolio.js'
 import Writing from './writing.js'
+import ShaderCanvas from './shaderCanvas.js'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const selectCellContent = (name) => {
   if (name === 'About') return <About />
@@ -26,9 +27,7 @@ export default function Cell({ name, isActive, onOpen, onClose }) {
 
     for (let i = 0; i < pChildren.length; i++) {
       const child = pChildren[i]
-
       if (child.id === id) continue
-
       child.classList.remove('cell-clicked')
       if (tChild.classList.value.includes('cell-clicked')) {
         child.classList.add('cell-shrink')
@@ -42,6 +41,7 @@ export default function Cell({ name, isActive, onOpen, onClose }) {
   return (
     <div className="cell" id={name} onClick={showPanel}>
       {isActive ? selectCellContent(name) : <h2>{name}</h2>}
+      <ShaderCanvas />
     </div>
   )
 }
