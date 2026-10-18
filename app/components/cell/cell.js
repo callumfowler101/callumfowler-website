@@ -1,4 +1,5 @@
 'use client'
+
 import styles from './cell.module.css'
 import About from './about.js'
 import Portfolio from './portfolio.js'
@@ -12,12 +13,8 @@ const selectCellContent = (name) => {
   if (name === 'Writing') return <Writing />
 }
 
-export default function Cell({ name }) {
-  const [isClicked, toggleIsClicked] = useState(false)
-
+export default function Cell({ name, isActive, onOpen, onClose }) {
   const showPanel = (e) => {
-    console.log('bang')
-
     const id = e.target.id
     const tChild = e.target
     const pChildren = e.target.parentElement.children
@@ -25,26 +22,26 @@ export default function Cell({ name }) {
     tChild.classList.remove('cell-shrink')
     tChild.classList.toggle('cell-clicked')
 
-    toggleIsClicked(tChild.classList.value.includes('cell-clicked'))
+    onOpen()
 
     for (let i = 0; i < pChildren.length; i++) {
       const child = pChildren[i]
-      console.log(child.id)
-      if (child.id === id) continue
-      child.classList.remove('cell-clicked')
 
+      if (child.id === id) continue
+
+      child.classList.remove('cell-clicked')
       if (tChild.classList.value.includes('cell-clicked')) {
         child.classList.add('cell-shrink')
       } else {
         child.classList.remove('cell-shrink')
+        onClose()
       }
     }
-    console.log(pChildren)
   }
 
   return (
     <div className="cell" id={name} onClick={showPanel}>
-      {isClicked ? selectCellContent(name) : <h2>{name}</h2>}
+      {isActive ? selectCellContent(name) : <h2>{name}</h2>}
     </div>
   )
 }

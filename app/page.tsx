@@ -4,6 +4,8 @@ import Cell from './components/cell/cell.js'
 import Image from 'next/image'
 
 export default function Home() {
+  const [activeIdx, setActiveIdx] = useState(0)
+
   return (
     <>
       <svg width="0" height="0" style={{ position: 'absolute' }}>
@@ -35,9 +37,36 @@ export default function Home() {
           </div>
         </div>
         <div className="cell-container">
-          <Cell name="About" />
-          <Cell name="Portfolio" />
-          <Cell name="Writing" />
+          <Cell
+            name="About"
+            isActive={activeIdx === 1}
+            onOpen={() => {
+              setActiveIdx(1)
+            }}
+            onClose={() => {
+              setActiveIdx(0)
+            }}
+          />
+          <Cell
+            name="Portfolio"
+            isActive={activeIdx === 2}
+            onOpen={() => {
+              setActiveIdx(2)
+            }}
+            onClose={() => {
+              setActiveIdx(0)
+            }}
+          />
+          <Cell
+            name="Writing"
+            isActive={activeIdx === 3}
+            onOpen={() => {
+              setActiveIdx(3)
+            }}
+            onClose={() => {
+              setActiveIdx(0)
+            }}
+          />
         </div>
         <div className="footer"></div>
       </div>
